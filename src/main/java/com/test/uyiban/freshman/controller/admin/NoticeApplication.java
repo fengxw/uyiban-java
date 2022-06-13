@@ -1,4 +1,4 @@
-package com.test.freshman.controller.admin;
+package com.test.uyiban.freshman.controller.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
+@SpringBootApplication
 @RestController
 public class NoticeApplication {
 
@@ -37,10 +37,7 @@ public class NoticeApplication {
 //            $item['Attachments'] = json_decode($item['Attachments'], true);
 //        }
 //    }
-
 //        $batch['Notice'] = $notice;
-
         return "batchId";
-//        return $batch;
     }
 }
