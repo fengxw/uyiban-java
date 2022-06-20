@@ -12,19 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@Scope("prototype")
-//@RequestMapping("/my/test")
 public class TestController {
 
-    private TTestService tTestService;
+//    private TTestService tTestService;
 
-    @RequestMapping("/select")
-    public List<TestModel> select() throws Exception {
-        return tTestService.getAll();
-    }
+//    @RequestMapping("/select")
+//    public List<TestModel> select() throws Exception {
+////        return tTestService.getAll();
+//    }
 
-    @RequestMapping(value = "/insert")
-    public int insert(@RequestParam(value = "name") String name) throws Exception {
-        return tTestService.insert(name);
+//    @RequestMapping(value = "/insert")
+//    public int insert(@RequestParam(value = "name") String name) throws Exception {
+////        return tTestService.insert(name);
+//    }
+
+    @RequestMapping("/hello")
+    public String hello() {
+        return "hello";
     }
 }

@@ -15,4 +15,6 @@ spring:
     url: jdbc:mysql://192.168.0.14:3306/uyiban-test?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
     username: root
     password: 1
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+debug: false

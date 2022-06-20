@@ -2,16 +2,15 @@ package com.test.uyiban.freshman.controller.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class NoticeApplication {
+public class NoticeController {
 
     public static void main(String[] args) {
-        SpringApplication.run(NoticeApplication.class, args);
+        SpringApplication.run(NoticeController.class, args);
     }
 
     @RequestMapping("/freshman/admin/notice/detail")

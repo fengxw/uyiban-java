@@ -17,17 +17,17 @@ public class TTestService {
 //        this.testMapper = testMapper;
 //    }
 
-    final TestMapper testMapper;
-
-    public TTestService(TestMapper testMapper) {
-        this.testMapper = testMapper;
-    }
-
-    public List<TestModel> getAll() {
-        return testMapper.getAll();
-    }
-
-    public int insert(String name) {
-        return testMapper.insert(name);
-    }
+//    final TestMapper testMapper;
+//
+//    public TTestService(TestMapper testMapper) {
+//        this.testMapper = testMapper;
+//    }
+//
+//    public List<TestModel> getAll() {
+//        return testMapper.getAll();
+//    }
+//
+//    public int insert(String name) {
+//        return testMapper.insert(name);
+//    }
 }
