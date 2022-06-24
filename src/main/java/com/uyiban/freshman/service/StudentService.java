@@ -6,12 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class StudentService {
+public interface StudentService {
 
-    @Autowired
-    StudentMapper studentMapper;
-
-    public StudentModel getStudentById(int id) {
-        return studentMapper.getStudentById(id);
-    }
+    public StudentModel getStudentById(int id);
 }
