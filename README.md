@@ -1,2 +1,2 @@
 # uyiban-java
-first java project
+uyiban project
