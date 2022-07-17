@@ -4,7 +4,15 @@ spring:
     username: root
     password: 1qazse4
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  cache:
+    type: redis
+    redis:
+      cache-null-values: true
+  redis:
+    redisson:
+      config: classpath:redisson/redisson.yml
+  logging:
+    config: classpath:logback/logback-dev.xml
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
