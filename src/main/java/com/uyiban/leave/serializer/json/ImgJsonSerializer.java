@@ -14,7 +14,7 @@ import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.yami.shop.common.bean.Qiniu;
+import com.uyiban.leave.bean.Qiniu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +23,7 @@ import java.io.IOException;
 @Component
 public class ImgJsonSerializer extends JsonSerializer<String> {
 
-    @Autowired
+//    @Autowired
     private Qiniu qiniu;
 
     @Override

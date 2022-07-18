@@ -52,7 +52,7 @@ public class UserController {
      * 分页获取
      */
     @GetMapping("/page")
-    @PreAuthorize("@pms.hasPermission('admin:user:page')")
+//    @PreAuthorize("@pms.hasPermission('admin:user:page')")
     public ResponseEntity<IPage<User>> page(User user,PageParam<User> page) {
         IPage<User> userIPage = userService.page(page, new LambdaQueryWrapper<User>()
                 .like(StrUtil.isNotBlank(user.getNickName()), User::getNickName, user.getNickName())

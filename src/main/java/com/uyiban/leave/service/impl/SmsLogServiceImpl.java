@@ -27,6 +27,7 @@ import com.uyiban.leave.model.SmsLog;
 import com.uyiban.leave.bean.ALiDaYu;
 import com.uyiban.leave.exception.YamiShopBindException;
 import com.uyiban.leave.util.Json;
+import com.uyiban.leave.dao.SmsLogMapper;
 import com.uyiban.leave.service.SmsLogService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
