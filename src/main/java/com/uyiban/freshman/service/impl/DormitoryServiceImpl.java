@@ -1,5 +1,7 @@
 package com.uyiban.freshman.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.uyiban.freshman.mapper.DormitoryMapper;
 import com.uyiban.freshman.model.DormitoryModel;
 import com.uyiban.freshman.service.DormitoryService;
@@ -18,7 +20,11 @@ public class DormitoryServiceImpl implements DormitoryService {
         return dormitoryMapper.getDormitoryById(id);
     };
 
-    public List<DormitoryModel> getDormitories(int offset, int limit) {
-        return dormitoryMapper.getDormitories(offset, limit);
+    public PageInfo<DormitoryModel> getDormitories(int page, int pageSize) {
+        PageHelper.startPage(page, pageSize);
+        List<DormitoryModel> dormitories=dormitoryMapper.getAll();
+        PageInfo<DormitoryModel> pageInfo = new PageInfo<>(dormitories);
+
+        return pageInfo;
     };
 }

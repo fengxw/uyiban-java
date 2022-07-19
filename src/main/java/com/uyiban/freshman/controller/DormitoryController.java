@@ -1,5 +1,6 @@
 package com.uyiban.freshman.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.uyiban.freshman.model.DormitoryModel;
 import com.uyiban.freshman.service.DormitoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,12 @@ public class DormitoryController {
     DormitoryService dormitoryService;
 
     @GetMapping("/fetchList")
-    public List<DormitoryModel> getDormitories(@RequestParam("page") int page, @RequestParam("pageSize") int pageSize) {
+    public PageInfo<DormitoryModel> getDormitories(@RequestParam("page") Integer page, @RequestParam("pageSize") Integer pageSize) {
 
-
-        int offset = (page - 1) * pageSize;
-        int limit = pageSize;
-        return dormitoryService.getDormitories(offset, limit);
+//        int offset = (page - 1) * pageSize;
+//        int limit = pageSize;
+//
+        return dormitoryService.getDormitories(page, pageSize);
 
 //        $params = $this -> di -> request -> get();
 //        $page = intval($params['page'] ? ? 1);
@@ -42,5 +43,12 @@ public class DormitoryController {
 //        return $this -> di -> utils -> pagination($list, $total, $page, $pageSize);
 //        return ;
 //        return null;
+    }
+
+
+
+    @RequestMapping("/test")
+    public String test() {
+        return "cccc";
     }
 }
