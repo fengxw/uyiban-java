@@ -6,7 +6,7 @@
     <select id="getDormitoryById" resultType="DormitoryModel">
         select Id,StudentName,StudentNo,BuildingNo,BunkNo,IDCardNo,AdmissionNo,ExamNo,CandidatesNo,DormitoryNo,BatchId from freshman_dormitory where Id = #{id}
     </select>
-    <select id="getDormitories" resultType="DormitoryModel">
-        select * from freshman_dormitory limit #{offset}, #{limit};
+    <select id="getAll" resultType="DormitoryModel">
+        select * from freshman_dormitory
     </select>
 </mapper>
