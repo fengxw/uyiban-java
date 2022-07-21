@@ -2,7 +2,6 @@ package com.uyiban.leave.service.impl;
 
 import com.uyiban.leave.mapper.SmsLogMapper;
 import com.uyiban.leave.model.SmsLogModel;
-import com.uyiban.leave.model.StudentModel;
 import com.uyiban.leave.service.SmsLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

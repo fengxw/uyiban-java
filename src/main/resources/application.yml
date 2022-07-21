@@ -22,3 +22,9 @@ page helper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
+server:
+  servlet:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
