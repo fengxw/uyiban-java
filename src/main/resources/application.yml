@@ -20,6 +20,15 @@ spring:
 #  spring.redis.lettuce.pool.min-idle=0
 #
 
+  cache:
+    type: redis
+    redis:
+      cache-null-values: true
+#  redis:
+#    redisson:
+#      config: classpath:redisson/redisson.yml
+  logging:
+    config: classpath:logback/logback-dev.xml
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
@@ -29,4 +38,11 @@ page helper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
+server:
+  servlet:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
+
 
