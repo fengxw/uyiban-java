@@ -22,24 +22,31 @@ public class OffLeaveController {
     WorkflowService workflowService;
 
     @RequestMapping("/getLeaveTypes")
-    public WorkflowModel getLeaveTypes(@RequestParam("Id") String Id) {
+    public String getLeaveTypes(@RequestParam("Id") String Id) {
         System.out.println("ddd");
 
         WorkflowModel wfRow =  workflowService.findWF(Id);
         System.out.println(wfRow.getFormJson());
 
 //        JsonObject formJsonObj = JsonParser.parseString(wfRow.getFormJson()).getAsJsonObject();
-        JsonArray formJsonArr = JsonParser.parseString(wfRow.getFormJson()).getAsJsonArray("spawns");
+        JsonArray formJsonArr = JsonParser.parseString(wfRow.getFormJson()).getAsJsonArray();
 //        formJsonObj.get()
-        System.out.println(formJsonArr);
+//        System.out.println(formJsonArr);
         for (JsonElement spawnElement : formJsonArr) {
             JsonObject spawnJson = spawnElement.getAsJsonObject();
-            System.out.println(spawnJson);
-            if(spawnJson.getAsString("Id")==""){
+//            String spawnJsonStr = spawnElement.getAsString();
+
+            if(spawnJson.getAsJsonObject().get("id").getAsString().equals("LeaveType")){
+                System.out.println("dddd ");
+                System.out.println(spawnJson.get("id"));
+                System.out.println(spawnJson.getAsJsonObject("props"));
+//                System.out.println(spawnJson.getAsString());
+
+//                return "ddddddd";
 
             }
 
         }
-        return wfRow;
+        return "dddd";
     }
 }
