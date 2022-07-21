@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.uyiban.leave.mapper.StudentMapper">
+<mapper namespace="com.uyiban.freshman.mapper.StudentMapper">
     <select id="getStudentById" resultType="StudentModel">
         select id, name from student where id = #{id}
     </select>
