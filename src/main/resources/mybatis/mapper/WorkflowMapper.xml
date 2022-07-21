@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.uyiban.freshman.mapper.StudentMapper">
-    <select id="getStudentById" resultType="StudentModel">
-        select id, name from student where id = #{id}
+<mapper namespace="com.uyiban.leave.mapper.WorkflowMapper">
+    <select id="findWF" resultType="WorkflowModel">
+        select Id, FormJson from base_workflow where Id = #{Id}
     </select>
 </mapper>
