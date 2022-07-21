@@ -20,9 +20,9 @@ public class DormitoryServiceImpl implements DormitoryService {
         return dormitoryMapper.getDormitoryById(id);
     };
 
-    public PageInfo<DormitoryModel> getDormitories(int page, int pageSize) {
+    public PageInfo<DormitoryModel> getDormitories(int page, int pageSize, String number) {
         PageHelper.startPage(page, pageSize);
-        List<DormitoryModel> dormitories=dormitoryMapper.getAll();
+        List<DormitoryModel> dormitories=dormitoryMapper.getAll(number);
         PageInfo<DormitoryModel> pageInfo = new PageInfo<>(dormitories);
 
         return pageInfo;

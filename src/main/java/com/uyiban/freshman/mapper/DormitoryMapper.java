@@ -9,5 +9,5 @@ import java.util.List;
 public interface DormitoryMapper {
     DormitoryModel getDormitoryById(int id);
 
-    List<DormitoryModel> getAll();
+    List<DormitoryModel> getAll(String number);
 }

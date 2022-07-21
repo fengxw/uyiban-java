@@ -4,15 +4,12 @@ import com.github.pagehelper.PageInfo;
 import com.uyiban.freshman.model.DormitoryModel;
 import com.uyiban.freshman.service.DormitoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/freshman/dormitories")
@@ -27,13 +24,13 @@ public class DormitoryController {
     private RedisTemplate redisTemplate;
 
     @GetMapping("/fetchList")
-    public PageInfo<DormitoryModel> getDormitories(@RequestParam("page") Integer page, @RequestParam("pageSize") Integer pageSize) {
+    public PageInfo<DormitoryModel> getDormitories(
+            @RequestParam(value = "page",defaultValue = "1", required = false) Integer page,
+            @RequestParam(value = "pageSize",defaultValue = "10", required = false) Integer pageSize,
+            @RequestParam(value = "number",defaultValue = "", required = false) String number
+    ) {
 
-//        int offset = (page - 1) * pageSize;
-//        int limit = pageSize;
-//
-        return dormitoryService.getDormitories(page, pageSize);
-
+        return dormitoryService.getDormitories(page, pageSize, number);
 //        $params = $this -> di -> request -> get();
 //        $page = intval($params['page'] ? ? 1);
 //        $pageSize = intval($params['pageSize'] ? ? 10);

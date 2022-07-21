@@ -8,5 +8,10 @@
     </select>
     <select id="getAll" resultType="DormitoryModel">
         select * from freshman_dormitory
+        <where>
+            <if test="number != ''">
+                and StudentNo = #{number}
+            </if>
+        </where>
     </select>
 </mapper>
