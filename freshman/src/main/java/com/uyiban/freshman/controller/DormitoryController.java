@@ -6,10 +6,9 @@ import com.uyiban.freshman.service.DormitoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/freshman/dormitories")
@@ -31,25 +30,16 @@ public class DormitoryController {
     ) {
 
         return dormitoryService.getDormitories(page, pageSize, number);
-//        $params = $this -> di -> request -> get();
-//        $page = intval($params['page'] ? ? 1);
-//        $pageSize = intval($params['pageSize'] ? ? 10);
-//
-//        $condition = $this -> getCondition($params);
-//        if ($condition == false) {
-//            return $this -> di -> utils -> pagination([],0, $page, $pageSize);
-//        }
-//        // 公寓查询
-//        $dormitoryModel = DormitoryModel::getInstance ();
-//        $field = 'StudentId, BuildingNo, BunkNo, DormitoryNo';
-//        list($list, $total) = $dormitoryModel -> pagingDormitoryList($condition, $field, $page, $pageSize,[['CreatedAt', 'Desc'], [
-//        'StudentId', 'Asc']]);
-//
-//        return $this -> di -> utils -> pagination($list, $total, $page, $pageSize);
-//        return ;
-//        return null;
     }
 
+    @PostMapping("/{id}")
+    public Object updateStudentNo(@PathVariable("id") int id, @RequestBody Map payload) {
+        System.out.println(payload);
+        System.out.println(payload.get("StudentNo"));
+        dormitoryService.updateStudentNoById(id, (String) payload.get("StudentNo"));
+        
+        return null;
+    }
 
     @GetMapping("/redis/string")
     public String StringRedisTest() {

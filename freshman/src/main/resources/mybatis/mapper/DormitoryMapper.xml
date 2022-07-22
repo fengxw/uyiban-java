@@ -23,4 +23,7 @@
             </if>
         </where>
     </select>
+    <update id="updateStudentNoById">
+        update freshman_dormitory set `StudentNo`= #{studentNo} where Id = #{id}
+    </update>
 </mapper>

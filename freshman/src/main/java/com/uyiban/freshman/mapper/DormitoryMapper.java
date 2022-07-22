@@ -10,4 +10,6 @@ public interface DormitoryMapper {
     DormitoryModel getDormitoryById(int id);
 
     List<DormitoryModel> getAll(String number);
+
+    void updateStudentNoById(int id, String studentNo);
 }
