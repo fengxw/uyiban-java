@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>com.uyiban.xbh</groupId>
-            <artifactId>uyiban-xbh-leave</artifactId>
+            <artifactId>leave</artifactId>
             <version>${uyiban.xbh.version}</version>
         </dependency>
         <dependency>
