@@ -17,11 +17,6 @@
             <version>${uyiban.xbh.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.uyiban.xbh</groupId>
-            <artifactId>freshman</artifactId>
-            <version>${uyiban.xbh.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
         </dependency>
