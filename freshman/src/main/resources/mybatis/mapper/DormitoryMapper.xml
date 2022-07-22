@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uyiban.freshman.mapper.DormitoryMapper">
+    <select id="getDormitoryById" resultType="DormitoryModel">
+        select Id,StudentName,StudentNo,BuildingNo,BunkNo,IDCardNo,AdmissionNo,ExamNo,CandidatesNo,DormitoryNo,BatchId from freshman_dormitory where Id = #{id}
+    </select>
+    <resultMap id="DormitoryMap" type="DormitoryModel">
+        <id property="Id" column="Id"/>
+        <result property="StudentName" column="StudentName"/>
+        <result property="StudentNo" column="StudentNo"/>
+        <result property="BuildingNo" column="BuildingNo"/>
+        <result property="BunkNo" column="BunkNo"/>
+        <result property="IDCardNo" column="IDCardNo"/>
+        <result property="AdmissionNo" column="AdmissionNo"/>
+    </resultMap>
+    <select id="getAll" resultType="DormitoryModel">
+        select * from freshman_dormitory
+        <where>
+            <if test="number != ''">
+                and StudentNo = #{number}
+            </if>
+        </where>
+    </select>
+</mapper>
