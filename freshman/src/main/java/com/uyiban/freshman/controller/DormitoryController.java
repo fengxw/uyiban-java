@@ -22,10 +22,14 @@ public class DormitoryController {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @GetMapping("/{id}")
+    public DormitoryModel getDormitory(@PathVariable("id") Integer id) {
+        return dormitoryService.getDormitoryById(id);
+    }
     @GetMapping("/fetchList")
     public PageInfo<DormitoryModel> getDormitories(
-            @RequestParam(value = "page",defaultValue = "1", required = false) Integer page,
-            @RequestParam(value = "pageSize",defaultValue = "10", required = false) Integer pageSize,
+            @RequestParam(value = "page",defaultValue = "1", required = false) int page,
+            @RequestParam(value = "pageSize",defaultValue = "10", required = false) int pageSize,
             @RequestParam(value = "number",defaultValue = "", required = false) String number
     ) {
 
@@ -34,8 +38,6 @@ public class DormitoryController {
 
     @PostMapping("/{id}")
     public Object updateStudentNo(@PathVariable("id") int id, @RequestBody Map payload) {
-        System.out.println(payload);
-        System.out.println(payload.get("StudentNo"));
         dormitoryService.updateStudentNoById(id, (String) payload.get("StudentNo"));
         
         return null;

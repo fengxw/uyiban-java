@@ -2,6 +2,7 @@ package com.uyiban.freshman.mapper;
 
 import com.uyiban.freshman.model.DormitoryModel;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,5 +12,5 @@ public interface DormitoryMapper {
 
     List<DormitoryModel> getAll(String number);
 
-    void updateStudentNoById(int id, String studentNo);
+    void updateStudentNoById(@Param("id") int id, @Param("studentNo") String studentNo);
 }
