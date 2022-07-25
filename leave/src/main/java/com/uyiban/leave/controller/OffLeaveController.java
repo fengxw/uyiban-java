@@ -43,7 +43,7 @@ public class OffLeaveController {
          *             ['Id', $id],
          *         ], 'Id, StudentId, StartTime, EndTime, OffLeaveTime, RealEndTime');
          */
-//        System.out.println(Id);
+        System.out.println(Id);
         DataSourceUtil.setDB("db2");
         LeaveRecordModel wfRow =  leaveRecordService.findOneById(Id);
         return wfRow;

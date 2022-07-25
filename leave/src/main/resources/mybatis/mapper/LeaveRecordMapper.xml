@@ -6,4 +6,13 @@
     <select id="findById" resultType="LeaveRecordModel">
         select Id, StudentId, StartTime, EndTime, OffLeaveTime, RealEndTime from leave_record where Id = #{Id}
     </select>
+
+    <resultMap id="BaseResultMap" type="com.uyiban.leave.model.LeaveRecordModel">
+        <id column="Id" jdbcType="VARCHAR" property="Id"/>
+        <id column="StudentId" jdbcType="VARCHAR" property="StudentId"/>
+        <result column="StartTime" jdbcType="BIGINT" property="StartTime"/>
+        <result column="EndTime" jdbcType="BIGINT" property="EndTime"/>
+        <result column="OffLeaveTime" jdbcType="BIGINT" property="OffLeaveTime"/>
+        <result column="RealEndTime" jdbcType="BIGINT" property="RealEndTime"/>
+    </resultMap>
 </mapper>

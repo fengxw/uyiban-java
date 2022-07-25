@@ -3,6 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+<!--    <settings>-->
+<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+<!--        &lt;!&ndash;配置日志格式&ndash;&gt;-->
+<!--        &lt;!&ndash;        <setting name="logImpl" value="LOG4J"/>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <setting name="cacheEnabled" value="true"/>&ndash;&gt;-->
+<!--    </settings>-->
     <typeAliases>
         <package name="com.uyiban.leave.model"/>
     </typeAliases>
