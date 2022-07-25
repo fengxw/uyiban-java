@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.Map;
 
 @RestController
@@ -58,8 +59,20 @@ public class DormitoryController {
         return redisTemplate.opsForValue().get("test_redis_1");
     }
 
-    @RequestMapping("/test")
+    @GetMapping("/test")
     public String test() {
         return "cccc";
+    }
+
+    @GetMapping("/testlambda")
+    public String[] testLambda() {
+        String[] array = new String[] { "Apple", "Orange", "Banana", "Lemon" };
+        Arrays.sort(array, (s1, s2) -> {
+            return s1.compareToIgnoreCase(s2);
+        });
+
+        System.out.println(String.join(", ", array));
+
+        return array;
     }
 }
