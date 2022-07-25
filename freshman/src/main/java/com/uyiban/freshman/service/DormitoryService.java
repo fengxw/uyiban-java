@@ -10,4 +10,6 @@ public interface DormitoryService {
     DormitoryModel getDormitoryById(int id);
 
     PageInfo<DormitoryModel> getDormitories(int offset, int limit, String number);
+
+    void updateStudentNoById(int id, String studentNo);
 }

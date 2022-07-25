@@ -6,10 +6,10 @@ import com.uyiban.freshman.service.DormitoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/freshman/dormitories")
@@ -23,33 +23,26 @@ public class DormitoryController {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @GetMapping("/{id}")
+    public DormitoryModel getDormitory(@PathVariable("id") Integer id) {
+        return dormitoryService.getDormitoryById(id);
+    }
     @GetMapping("/fetchList")
     public PageInfo<DormitoryModel> getDormitories(
-            @RequestParam(value = "page",defaultValue = "1", required = false) Integer page,
-            @RequestParam(value = "pageSize",defaultValue = "10", required = false) Integer pageSize,
+            @RequestParam(value = "page",defaultValue = "1", required = false) int page,
+            @RequestParam(value = "pageSize",defaultValue = "10", required = false) int pageSize,
             @RequestParam(value = "number",defaultValue = "", required = false) String number
     ) {
 
         return dormitoryService.getDormitories(page, pageSize, number);
-//        $params = $this -> di -> request -> get();
-//        $page = intval($params['page'] ? ? 1);
-//        $pageSize = intval($params['pageSize'] ? ? 10);
-//
-//        $condition = $this -> getCondition($params);
-//        if ($condition == false) {
-//            return $this -> di -> utils -> pagination([],0, $page, $pageSize);
-//        }
-//        // 公寓查询
-//        $dormitoryModel = DormitoryModel::getInstance ();
-//        $field = 'StudentId, BuildingNo, BunkNo, DormitoryNo';
-//        list($list, $total) = $dormitoryModel -> pagingDormitoryList($condition, $field, $page, $pageSize,[['CreatedAt', 'Desc'], [
-//        'StudentId', 'Asc']]);
-//
-//        return $this -> di -> utils -> pagination($list, $total, $page, $pageSize);
-//        return ;
-//        return null;
     }
 
+    @PostMapping("/{id}")
+    public Object updateStudentNo(@PathVariable("id") int id, @RequestBody Map payload) {
+        dormitoryService.updateStudentNoById(id, (String) payload.get("StudentNo"));
+        
+        return null;
+    }
 
     @GetMapping("/redis/string")
     public String StringRedisTest() {
@@ -66,8 +59,20 @@ public class DormitoryController {
         return redisTemplate.opsForValue().get("test_redis_1");
     }
 
-    @RequestMapping("/test")
+    @GetMapping("/test")
     public String test() {
         return "cccc";
+    }
+
+    @GetMapping("/testlambda")
+    public String[] testLambda() {
+        String[] array = new String[] { "Apple", "Orange", "Banana", "Lemon" };
+        Arrays.sort(array, (s1, s2) -> {
+            return s1.compareToIgnoreCase(s2);
+        });
+
+        System.out.println(String.join(", ", array));
+
+        return array;
     }
 }

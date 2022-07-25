@@ -1,11 +1,11 @@
 package com.uyiban.leave.service;
 
 import com.uyiban.leave.model.LeaveRecordModel;
-import com.uyiban.leave.model.WorkflowModel;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface WorkflowService {
+public interface LeaveRecordService {
 
-    public WorkflowModel findWF(String Id);
+    public LeaveRecordModel findById(String Id);
+    public LeaveRecordModel findOneById(String Id);
 }

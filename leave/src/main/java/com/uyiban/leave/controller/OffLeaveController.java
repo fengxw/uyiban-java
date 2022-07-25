@@ -1,13 +1,15 @@
 package com.uyiban.leave.controller;
 
 import com.uyiban.leave.config.ResultDto;
+import com.uyiban.leave.model.LeaveRecordModel;
 import com.uyiban.leave.model.WorkflowModel;
+import com.uyiban.leave.service.LeaveRecordService;
 import com.uyiban.leave.service.WorkflowService;
+import com.uyiban.leave.util.DataSourceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.data.redis.core.RedisTemplate;
 
 
 import com.google.gson.JsonElement;
@@ -24,15 +26,32 @@ public class OffLeaveController {
 
     @Autowired
     WorkflowService workflowService;
+    @Autowired
+    LeaveRecordService leaveRecordService;
 
     @RequestMapping("/test")
     public ResultDto<String> test(@RequestParam("Id") String Id) {
         return ResultDto.success(Id);
     }
 
+    @RequestMapping("/off")
+    public LeaveRecordModel off(@RequestParam("Id") String Id) {
+        /**
+         * $recordModel = RecordModel::getInstance();
+         *         $record = $recordModel->findOneBy([
+         *             ['UniversityId', $this->universityId],
+         *             ['Id', $id],
+         *         ], 'Id, StudentId, StartTime, EndTime, OffLeaveTime, RealEndTime');
+         */
+//        System.out.println(Id);
+        DataSourceUtil.setDB("db2");
+        LeaveRecordModel wfRow =  leaveRecordService.findOneById(Id);
+        return wfRow;
+
+    }
     @RequestMapping("/getLeaveTypes")
     public List<String> getLeaveTypes(@RequestParam("Id") String Id) {
-
+        DataSourceUtil.setDB("base");
         WorkflowModel wfRow =  workflowService.findWF(Id);
 //        System.out.println(wfRow.getFormJson());
 

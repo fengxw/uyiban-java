@@ -1,6 +1,7 @@
 package com.uyiban.leave.service.impl;
 
 import com.uyiban.leave.mapper.WorkflowMapper;
+import com.uyiban.leave.model.LeaveRecordModel;
 import com.uyiban.leave.model.WorkflowModel;
 import com.uyiban.leave.service.WorkflowService;
 import org.springframework.beans.factory.annotation.Autowired;
